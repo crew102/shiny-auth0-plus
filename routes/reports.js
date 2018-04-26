@@ -1,7 +1,7 @@
 var express = require('express');
 var passport = require('passport');
 var httpProxy = require('http-proxy');
-var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn()
+var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 var router = express.Router();
 
 var proxy = httpProxy.createProxyServer({
@@ -20,7 +20,7 @@ var setIfExists = function(proxyReq, header, value){
   if(value){
     proxyReq.setHeader(header, value);
   }
-}
+};
 
 proxy.on('proxyReq', function(proxyReq, req, res, options) {
   setIfExists(proxyReq, 'x-auth0-user-id', req.user._json.sub);

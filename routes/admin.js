@@ -20,7 +20,7 @@ var setIfExists = function(proxyReq, header, value){
   if(value){
     proxyReq.setHeader(header, value);
   }
-}
+};
 
 proxy.on('proxyReq', function(proxyReq, req, res, options) {
   setIfExists(proxyReq, 'x-auth0-user-id', req.user._json.sub);
